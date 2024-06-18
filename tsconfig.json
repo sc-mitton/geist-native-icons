@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "outDir": "./lib/",
+        "noImplicitAny": false,
+        "esModuleInterop": true,
+        "module": "es2020",
+        "target": "es2020",
+        "jsx": "react-jsx",
+        "declaration": true,
+        "declarationDir": "./lib",
+        "skipLibCheck": true,
+        "moduleResolution": "node",
+    },
+    "include": [
+        "src/**/*",
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts",
+        "src/*.ts",
+    ]
+}
