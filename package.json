@@ -14,21 +14,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sc-mitton/geist-native-icons.git"
+    "url": "git+https://github.com/sc-mitton/geist-icons-native.git"
   },
   "keywords": [
     "icon",
     "react",
     "geist",
     "react-native",
-    "geist-native-icons",
+    "geist-icons-native",
     "native",
     "rn",
     "icons"
   ],
   "author": "Spencer Mitton",
   "license": "MIT",
-  "homepage": "https://github.com/sc-mitton/geist-native-icons#readme",
+  "homepage": "https://github.com/sc-mitton/geist-icons-native#readme",
   "devDependencies": {
     "@babel/core": "^7.24.7",
     "@babel/plugin-transform-flow-strip-types": "^7.24.7",

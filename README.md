@@ -4,17 +4,17 @@ This library is based on [geist icons for react](https://github.com/geist-org/ic
 
 ## Install
 
-`pnpm install geist-native-icons`
+`pnpm install geist-icons-native`
 
 ## Usage
 
 ```
-import { Github } from 'geist-native-icons'
+import { Github } from 'geist-icons-native'
 <Github size={36}/>
 ```
 
 Importing with *
 ```
-import * as Icons from 'geist-native-icons'
+import * as Icons from 'geist-icons-native'
 <Icons.Github/>
 ```
