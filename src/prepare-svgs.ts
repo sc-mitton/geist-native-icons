@@ -6,13 +6,28 @@ import { toHumpName, replaceAll } from './utils'
 const outputDir = path.join(import.meta.dirname, './', 'out')
 const sourceFile = path.join(import.meta.dirname, '../', '.source')
 
-const format = (svg: string) => {
+const format = (icon: Element, serializer: XMLSerializer) => {
 
-  svg = svg.replace(/ {2,}/g, '');
-  svg = svg.replace(/style="[^"]*"/g, '');
-  svg = replaceAll(svg, 'var(--geist-stroke)', 'currentColor');
-  svg = replaceAll(svg, 'var(--geist-fill)', 'currentColor');
-  return svg
+  const fill = icon.querySelector('svg')?.getAttribute('style')?.match(/--geist-fill:(.*);/)?.[1];
+  const stroke = icon.querySelector('svg')?.getAttribute('style')?.match(/--geist-stroke:(.*);/)?.[1];
+  const background = icon.querySelector('svg')?.getAttribute('style')?.match(/--geist-background/);
+  let svg = serializer.serializeToString(icon.querySelector('svg')!);
+
+  svg = replaceAll(svg, 'var(--geist-foreground)', 'currentColor');
+
+  if (background) {
+    svg = svg.replace(/ {2,}/g, '');
+    svg = svg.replace(/style="[^"]*"/g, '');
+    svg = replaceAll(svg, 'var(--geist-fill)', fill || '');
+    svg = replaceAll(svg, 'var(--geist-stroke)', '#FFF' || '');
+  } else {
+    svg = svg.replace(/ {2,}/g, '');
+    svg = svg.replace(/style="[^"]*"/g, '');
+    svg = replaceAll(svg, 'var(--geist-fill)', fill || '');
+    svg = replaceAll(svg, 'var(--geist-stroke)', stroke || '');
+  }
+
+  return svg;
 }
 
 export default (async () => {
@@ -30,9 +45,8 @@ export default (async () => {
 
   for (const icon of icons) {
     const serializer = new dom.window.XMLSerializer();
-    let svgString = serializer.serializeToString(icon.querySelector('svg')!);
 
-    svgString = format(svgString);
+    const svgString = format(icon, serializer);
 
     const name: string = icon.querySelector('.geist-text')?.textContent ?? 'defaultName';
     const fileName = toHumpName(name);

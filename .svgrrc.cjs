@@ -19,6 +19,14 @@ module.exports = {
                         attributes: ['xmlns', 'className', 'shapeRendering'],
                     },
                 ],
+                [
+                    '@svgr/babel-plugin-replace-jsx-attribute-value',
+                    {
+                        values: [
+                            { value: '#FFF', newValue: 'props.fill', literal: true },
+                        ]
+                    }
+                ]
             ],
         },
     },
