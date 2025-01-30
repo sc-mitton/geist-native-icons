@@ -4,7 +4,10 @@ This library is based on [geist icons for react](https://github.com/geist-org/ic
 
 ## Install
 
-`pnpm install geist-native-icons`
+```
+npx expo install react-native-svg
+pnpm install geist-native-icons
+```
 
 ## Usage
 
