@@ -1,6 +1,6 @@
 {
   "name": "geist-native-icons",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "React native components for geist icons",
   "type": "module",
   "main": "index.js",
